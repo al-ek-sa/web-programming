@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cbc96250-dd41-4655-958d-1288c2cde47a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/img.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lab1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/lab1/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,10 +52,12 @@
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "git-widget-placeholder": "lab1",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/xfiles/itmo/3sem/web",
+    "last_opened_file_path": "/home/xfiles/itmo/3sem/web/lab1/img",
     "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.jshint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.jshint": "",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
@@ -64,6 +65,11 @@
     "project.structure.side.proportion": "0.0"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lab1/img" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

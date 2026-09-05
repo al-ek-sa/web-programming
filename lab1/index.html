@@ -20,12 +20,60 @@
 
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#fafafa">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      width: 100%;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      min-height: 100vh;
+      gap: 0;
+    }
+
+    .section {
+      width: 100%;
+      min-height: 100vh;
+      background-size: contain;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .section-1 {
+      background-image: url("img/img1.jpg");
+      min-height: 72vh;
+    }
+
+    .section-2 {
+      background-color: #000000;
+    }
+
+  </style>
 </head>
 
 <body>
-
-  <!-- Add your site or application content here -->
-  <p>Hello world! This is HTML5 Boilerplate.</p>
+  <div class="container">
+    <div class="section section-1">
+      <h1 align="center" style="color: rgb(255 255 255 / 0.6); font-family: IM FELL French Canon SC"; font-size = 20ex >LOCUS</h1>
+    </div>
+    <div class="section section-2"></div>
+    <div class="section section-2">
+  </div>
   <script src="js/app.js"></script>
 
 </body>
