@@ -1,0 +1,90 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'IM FELL French Canon SC', serif;
+  color: white;
+}
+
+html, body {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 70%;
+  gap: 0;
+}
+
+.section {
+  width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding: 0;
+}
+
+.section-1 {
+  background: url("../img/img1.jpg");
+  height: 75%;
+}
+
+.section-2 {
+  background-color: #000000;
+}
+
+
+.container-1 {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.display-left, .display-right {
+  flex: 1;
+  padding: 20px;
+}
+
+label {
+  font-size: 8ex;
+}
+
+#title {
+  text-align: left;
+  margin-left: 1ex;
+  font-size: clamp(3rem, 10vw, 24ex);
+  color: rgb(255 255 255 / 0.6);
+}
+
+#slogan {
+  text-align: left;
+  margin-left: 1ex;
+  font-size: 7ex;
+  color: rgb(255 255 255 / 0.6);
+}
+
+#name {
+  text-align: left;
+  margin-left: 1ex;
+  font-size: 4ex;
+  color: rgb(255 255 255 / 0.6);
+}
+
+#title-list {
+  text-align: left;
+  margin-left: 1ex;
+  color: rgb(255 255 255 / 0.6);
+}
+
+#info {
+  text-align: left;
+  margin-left: 1ex;
+  font-size: 3ex;
+  color: rgb(255 255 255 / 0.6);
+}

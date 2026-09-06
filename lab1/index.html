@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title></title>
+  <title>LOCUS</title>
   <link rel="stylesheet" href="css/style.css">
   <meta name="description" content="">
 
@@ -22,60 +22,49 @@
   <meta name="theme-color" content="#fafafa">
 
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html, body {
-      width: 100%;
-    }
-
-    .container {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-      min-height: 100vh;
-      gap: 0;
-    }
-
-    .section {
-      width: 100%;
-      min-height: 100vh;
-      background-size: contain;
-      background-repeat: no-repeat;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      margin: 0;
-      padding: 0;
-    }
-
-    .section-1 {
-      background-image: url("img/img1.jpg");
-      min-height: 72vh;
-    }
-
-    .section-2 {
-      background-color: #000000;
-    }
-
-  </style>
+  <link rel="stylesheet" href="css/style_one.css">
 </head>
 
 <body>
   <div class="container">
     <div class="section section-1">
-      <h1 align="center" style="color: rgb(255 255 255 / 0.6); font-family: IM FELL French Canon SC"; font-size = 20ex >LOCUS</h1>
+      <h1 id="title">LOCUS</h1>
+      <h2 id="slogan">WITHIN THE ZONE</h2>
+      <h3 id="name">LISHYK ALIAKSANDRA</h3>
+      <h4 id="info">P3206 | 503302 | 2323232</h4>
     </div>
-    <div class="section section-2"></div>
     <div class="section section-2">
+      <h1 align="center" font-size = 20ex >CHECK DATA</h1>
+      <div class="container-1">
+        <div class="display-left">
+          <form>
+            <label>X</label>
+            <input type="text" placeholder="">
+            <br>
+            <label>Y</label>
+            <input type="text" placeholder="">
+            <br>
+            <label>R</label>
+            <input type="text" placeholder="">
+            <br>
+            <button>CHECK</button>
+          </form>
+        </div>
+        <div class="display-right">
+          <canvas id="coordinatePlane" width="500" height="500">
+
+          </canvas>
+        </div>
+      </div>
+    </div>
+    <div class="section section-2">
+      <h1 align="center" font-size = 20ex >RESULT BEFORE</h1>
+      <table bgcolor="aqua">
+        <td>4567890</td>
+      </table>
+    </div>
   </div>
   <script src="js/app.js"></script>
 
 </body>
-
 </html>
