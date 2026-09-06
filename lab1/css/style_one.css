@@ -25,7 +25,7 @@ html, body {
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: flex-start;
   margin: 0;
   padding: 0;
@@ -38,8 +38,13 @@ html, body {
 
 .section-2 {
   background-color: #000000;
+  min-height: 75vh;
 }
 
+.section-3 {
+  background: black;
+  min-height: 100vh;
+}
 
 .container-1 {
   display: flex;
@@ -57,35 +62,68 @@ label {
 }
 
 #title {
+  padding-top: 0;
   text-align: left;
-  margin-left: 1ex;
-  font-size: clamp(3rem, 10vw, 24ex);
+  margin-left: 6vh;
+  font-size: clamp(3rem, 11vw, 28ex);
   color: rgb(255 255 255 / 0.6);
+  margin-bottom: 0;
 }
 
 #slogan {
+  padding-top: -0.2vh;
   text-align: left;
-  margin-left: 1ex;
-  font-size: 7ex;
+  margin-left: 6vh;
+  font-size: clamp(1.5rem, 4vw, 7ex);
   color: rgb(255 255 255 / 0.6);
 }
 
 #name {
   text-align: left;
-  margin-left: 1ex;
-  font-size: 4ex;
-  color: rgb(255 255 255 / 0.6);
-}
-
-#title-list {
-  text-align: left;
-  margin-left: 1ex;
+  margin-left: 6vh;
+  font-size: clamp(1.2rem, 2.5vw, 4ex);
   color: rgb(255 255 255 / 0.6);
 }
 
 #info {
   text-align: left;
-  margin-left: 1ex;
-  font-size: 3ex;
+  margin-left: 6vh;
+  font-size: clamp(0.9rem, 2vw, 3ex);
   color: rgb(255 255 255 / 0.6);
+}
+
+#section-title {
+  text-align: center;
+  font-size: clamp(2.5rem, 4vw, 20ex);
+  color: rgb(255 255 255 / 0.9);
+  margin: 0;
+  padding: 0;
+}
+
+input {
+  width: 70%;
+  padding: 10px 15px;
+  font-size: 2rem;
+  background: black;
+  border: 1px solid white;
+  border-radius: 0;
+  transition: all 0.3s ease;
+  margin-bottom: 25px;
+}
+
+button {
+  padding: 12px 30px;
+  font-size: 2rem;
+  width: 75%;
+  background: black;
+  border: 1px solid white;
+  border-radius: 0;
+  color: #ffffff;
+  text-transform: uppercase;
+}
+
+label {
+  font-size: 1.5rem;
+  color: rgb(255 255 255 / 0.9);
+  margin-right: 10px;
 }
