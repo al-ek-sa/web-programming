@@ -1,4 +1,6 @@
 const canvas = document.getElementById('coordinatePlane');
+const form = document.getElementById('form-data');
+const output = document.getElementById('resultOutput');
 const width = canvas.width;
 const height = canvas.height;
 
@@ -12,6 +14,7 @@ function coordinateSystem() {
   const centerY = Math.floor(height / 2) + 0.5;
 
   ctx.translate(centerX, centerY);
+  ctx.scale(1, -1);
 
   ctx.strokeStyle = '#ffffff';
   ctx.lineWidth = 1;
@@ -22,46 +25,104 @@ function coordinateSystem() {
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(0, -centerY);
-  ctx.lineTo(-3, -centerY+3);
-  ctx.moveTo(0, -centerY);
-  ctx.lineTo(3, -centerY+3);
-  ctx.stroke();
-
-  ctx.beginPath();
   ctx.moveTo(-centerX, 0);
   ctx.lineTo(centerX, 0);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(centerX, 0);
-  ctx.lineTo(centerX-2, 2);
-  ctx.moveTo(centerX, 0);
-  ctx.lineTo(centerX-2, -2);
+  ctx.moveTo(centerX-4, 0);
+  ctx.lineTo(centerX-6, 4);
+  ctx.moveTo(centerX-4, 0);
+  ctx.lineTo(centerX-6, -4);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.moveTo(-50, 0);
-  ctx.lineTo(0, -60);
+  ctx.moveTo(0, centerY);
+  ctx.lineTo(-4, centerY-4);
+  ctx.moveTo(0, centerY);
+  ctx.lineTo(4, centerY-4);
   ctx.stroke();
-
-  ctx.beginPath();
-  ctx.moveTo(0, 35);
-  ctx.lineTo(40, 35);
-  ctx.moveTo(40, 35);
-  ctx.lineTo(40, 0);
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.arc(0, 0, 60, 1.5*Math.PI, 2*Math.PI);
-  ctx.stroke();
-
-  ctx.beginPath();
-  ctx.arc(50, 10, 0.5, 0, Math.PI * 2);
-  ctx.stroke();
-
 
   ctx.restore();
 }
 
 coordinateSystem();
+
+function drawFigure(x, y, r) {
+  ctx.save();
+  const centerX = Math.floor(width / 2) + 0.5;
+  const centerY = Math.floor(height / 2) + 0.5;
+
+  ctx.translate(centerX, centerY);
+  ctx.scale(1, -1);
+
+  ctx.strokeStyle = '#ffffff';
+  ctx.lineWidth = 1;
+  const a = Math.max(Math.max(Math.abs(x), Math.abs(y)), r);
+  const lengthX = (centerX - 10) / a;
+  const lengthY = (centerY - 10) / a;
+
+  ctx.beginPath();
+  ctx.moveTo(0, lengthY * r);
+  ctx.lineTo(lengthX * r, lengthY * r);
+  ctx.lineTo(lengthX * r, 0);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.moveTo(0, -lengthY * r);
+  ctx.lineTo(-lengthX * r /2, 0);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(0, 0, lengthX * r, -Math.PI/2, 0);
+  ctx.stroke();
+
+  ctx.beginPath();
+  ctx.arc(lengthX*x, lengthY*y, 2, 2*Math.PI, 0);
+  ctx.stroke();
+
+  ctx.restore();
+}
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  coordinateSystem();
+
+  const formData = new FormData(form);
+
+  const object = Object.fromEntries(formData);
+  if(object['x-coordinate'].trim() === '' ||
+    object['y-coordinate'].trim() === '' ||
+    object['r-coordinate'].trim() === ''){
+    output.textContent = 'Not all data has been entered';
+    return;
+  }
+
+  const x = Number(object['x-coordinate']);
+  const y = Number(object['y-coordinate']);
+  const r = Number(object['r-coordinate']);
+
+  let result = false;
+
+  if(r < 0){
+    output.textContent = 'The radius cannot be negative';
+    return;
+  }
+
+  if(!Number.isFinite(x) ||
+    !Number.isFinite(y) || !Number.isFinite(r)) {
+    output.textContent = 'invalid data'
+    return;
+  }
+
+  if (x >= 0 && y >= 0){
+    result = (x <= r && y <= r);
+  } else if (x > 0 && y < 0) {
+    result = (x * x + y * y) <= r * r;
+  } else if (x <= 0 && y <= 0){
+    result = (2 * x + y) >= -r;
+  }
+
+  output.textContent = 'RESULT: ' + (result ? 'TRUE' : 'FALSE');
+  drawFigure(x, y, r);
+});
