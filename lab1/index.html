@@ -37,25 +37,24 @@
       <div class="section-title">CHECK DATA</div>
       <div class="container-1">
         <div class="display-left">
-          <form>
+          <form id="form-data">
             <label>Enter the X coordinate</label>
-            <input type="text" placeholder="Enter the X coordinate">
+            <input type="text" placeholder="Enter the X coordinate" name="x-coordinate">
             <br>
             <label>Enter the Y coordinate</label>
-            <input type="text" placeholder="Enter the Y coordinate">
+            <input type="text" placeholder="Enter the Y coordinate" name="y-coordinate">
             <br>
             <label>Enter radius R</label>
-            <input type="text" placeholder="Enter radius R">
+            <input type="text" placeholder="Enter radius R" name="r-coordinate">
             <br>
-            <button>CHECK</button>
+            <button name="check">CHECK</button>
             <br>
             <output id="resultOutput">Result: </output>
           </form>
         </div>
         <div class="display-right">
-          <canvas id="coordinatePlane">
-
-          </canvas>
+          <canvas id="coordinatePlane"></canvas>
+          <script src="js/vendor/coordinate_plane.js"></script>
         </div>
       </div>
     </div>
@@ -88,6 +87,6 @@
     </div>
   </div>
   <script src="js/app.js"></script>
-
+  <script src="js/vendor/verification_of_values.js"></script>
 </body>
 </html>
