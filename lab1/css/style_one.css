@@ -52,7 +52,14 @@ html, body {
   height: 100vh;
 }
 
-.display-left, .display-right {
+.display-right {
+  flex: 1;
+  padding: 20px;
+  margin-right: 7.5%;
+  margin-left: 15%;
+}
+
+.display-left {
   flex: 1;
   padding: 20px;
 }
@@ -68,6 +75,9 @@ label {
   font-size: clamp(3rem, 11vw, 28ex);
   color: rgb(255 255 255 / 0.6);
   margin-bottom: 0;
+  margin-top: 6vh;
+  line-height: 0.7;
+  text-box-edge: cap alphabetic;
 }
 
 #slogan {
@@ -76,20 +86,29 @@ label {
   margin-left: 6vh;
   font-size: clamp(1.5rem, 4vw, 7ex);
   color: rgb(255 255 255 / 0.6);
+  line-height: 0.7;
+  margin-top: 20px;
+  text-box-edge: cap alphabetic;
 }
 
 #name {
   text-align: left;
+  margin-top: 20px;
   margin-left: 6vh;
   font-size: clamp(1.2rem, 2.5vw, 4ex);
   color: rgb(255 255 255 / 0.6);
+  line-height: 0.7;
+  text-box-edge: cap alphabetic;
 }
 
 #info {
   text-align: left;
   margin-left: 6vh;
+  margin-top: 20px;
   font-size: clamp(0.9rem, 2vw, 3ex);
   color: rgb(255 255 255 / 0.6);
+  line-height: 0.7;
+  text-box-edge: cap alphabetic;
 }
 
 .section-title {
@@ -140,7 +159,7 @@ label {
 canvas {
   width: 100%;
   height: 100%;
-  border: 5px solid white;
+  border: 1px solid white;
 }
 
 
@@ -157,7 +176,6 @@ form {
   min-height: 60px;
   font-size: 3rem;
   background: black;
-  border: 1px solid white;
   border-radius: 0;
   color: white;
   cursor: pointer;
@@ -167,6 +185,8 @@ form {
   justify-content: center;
   text-transform: none;
   line-height: 1;
+  margin: 0;
+  border: black;
 }
 
 table {
@@ -181,8 +201,8 @@ table {
   margin-right: 0;
 }
 
-thead th{
-  background: white;
+tbody th{
+  background: black;
   padding: 15px 20px;
   text-align: center;
   font-size: clamp(1rem, 1.2vw, 1.2rem);
@@ -192,7 +212,8 @@ thead th{
   height: 8%;
   min-height: 8%;
   min-width: 20%;
-  border: 1px solid white;
+  border-right: 1px solid white;
+  border-bottom: 1px solid white;
 }
 
 tbody td {
@@ -202,6 +223,7 @@ tbody td {
   font-size: clamp(1rem, 1.2vw, 1.2rem);
   text-transform: uppercase;
   letter-spacing: 0;
+  border-right: 1px solid white;
 }
 
 .table-container {
@@ -210,7 +232,7 @@ tbody td {
   justify-content: center;
   gap: 20px;
   width: 100%;
-  height: 80%;
+  height: 90%;
 }
 
 output {
@@ -229,3 +251,4 @@ output {
   display: flex;
   align-items: center;
 }
+
