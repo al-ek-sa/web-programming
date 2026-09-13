@@ -6,7 +6,7 @@ const prevBtn = document.getElementById('prevPage');
 const nextBtn = document.getElementById('nextPage');
 const width = canvas.width;
 const height = canvas.height;
-let arr = [];
+let arr = JSON.parse(localStorage.getItem('result')) || [];
 let count = 0;
 const PAGE_SIZE = 10;
 
@@ -107,6 +107,7 @@ function addTable(r, x, y, result) {
             date
   });
   count = 0;
+  localStorage.setItem('result', JSON.stringify(arr));
   renderPage();
 }
 
