@@ -78,10 +78,29 @@ function drawFigure(x, y, r) {
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.arc(lengthX*x, lengthY*y, 2, 2*Math.PI, 0);
+  ctx.arc(lengthX*x, lengthY*y, 2.75, 2*Math.PI, 0);
+  ctx.fillStyle = 'white';
+  ctx.fill();
   ctx.stroke();
 
   ctx.restore();
+}
+
+function addTable(r, x, y, result) {
+  const tbody = document.getElementById('resultBody');
+  const now = new Date();
+
+  const tr = document.createElement('tr');
+  tr.innerHTML = `
+    <td>${x}</td>
+    <td>${y}</td>
+    <td>${r}</td>
+    <td>${result ? 'TRUE' : 'FALSE'}</td>
+    <td>${now.toLocaleTimeString('ru-RU')}</td>
+    <td>${now.toLocaleDateString('ru-RU')}</td>
+    `;
+
+  tbody.prepend(tr);
 }
 
 form.addEventListener('submit', function(event) {
@@ -125,4 +144,5 @@ form.addEventListener('submit', function(event) {
 
   output.textContent = 'RESULT: ' + (result ? 'TRUE' : 'FALSE');
   drawFigure(x, y, r);
+  addTable(r, x, y, result);
 });
