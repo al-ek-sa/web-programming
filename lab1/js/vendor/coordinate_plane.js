@@ -1,8 +1,14 @@
 const canvas = document.getElementById('coordinatePlane');
 const form = document.getElementById('form-data');
 const output = document.getElementById('resultOutput');
+const tbody = document.getElementById('resultBody');
+const prevBtn = document.getElementById('prevPage');
+const nextBtn = document.getElementById('nextPage');
 const width = canvas.width;
 const height = canvas.height;
+let arr = [];
+let count = 0;
+const PAGE_SIZE = 10;
 
 const ctx = canvas.getContext('2d');
 
@@ -87,21 +93,65 @@ function drawFigure(x, y, r) {
 }
 
 function addTable(r, x, y, result) {
-  const tbody = document.getElementById('resultBody');
   const now = new Date();
 
-  const tr = document.createElement('tr');
-  tr.innerHTML = `
-    <td>${x}</td>
-    <td>${y}</td>
-    <td>${r}</td>
-    <td>${result ? 'TRUE' : 'FALSE'}</td>
-    <td>${now.toLocaleTimeString('ru-RU')}</td>
-    <td>${now.toLocaleDateString('ru-RU')}</td>
-    `;
+  const date = now.toLocaleDateString('ru-RU');
+  const time = now.toLocaleTimeString('ru-RU');
 
-  tbody.prepend(tr);
+  arr.unshift({
+            r,
+            x,
+            y,
+            result,
+            time,
+            date
+  });
+  count = 0;
+  renderPage();
 }
+
+function renderPage(){
+  tbody.innerHTML = '';
+
+  const start = count * PAGE_SIZE;
+  const end = start + PAGE_SIZE;
+  const pageItems = arr.slice(start, end);
+
+  for(const row of pageItems){
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${row.x}</td>
+      <td>${row.y}</td>
+      <td>${row.r}</td>
+      <td>${row.result ? 'TRUE' : 'FALSE'}</td>
+      <td>${row.time}</td>
+      <td>${row.date}</td>
+    `;
+    tbody.appendChild(tr);
+  }
+
+  for(let i = pageItems.length; i < PAGE_SIZE; i++) {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td>&nbsp;</td><td></td><td></td><td></td><td></td><td></td>`;
+    tbody.appendChild(tr);
+  }
+
+  prevBtn.addEventListener('click', () => {
+    if(count > 0) {
+      count--;
+      renderPage();
+    }
+  });
+
+  nextBtn.addEventListener('click', () => {
+    if ((count + 1) * PAGE_SIZE < arr.length) {
+      count++;
+      renderPage();
+    }
+  })
+}
+
+renderPage();
 
 form.addEventListener('submit', function(event) {
   event.preventDefault();

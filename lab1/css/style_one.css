@@ -198,7 +198,7 @@ table {
   margin-right: 0;
 }
 
-tbody th{
+thead th{
   background: black;
   padding: 15px 20px;
   text-align: center;
